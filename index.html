@@ -128,16 +128,31 @@
   .btn-outline:hover { background: var(--green-50); }
 
   .hero-stats {
-    display: flex; gap: 3rem; margin-top: 4rem;
-    padding-top: 2rem; border-top: 1px solid rgba(22,163,74,0.15);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(22,163,74,0.15);
+    border-left: 1px solid rgba(22,163,74,0.15);
+    border-radius: 1rem;
+    overflow: hidden;
+    width: fit-content;
   }
-  .stat-item { display: flex; flex-direction: column; gap: 0.25rem; }
+  .stat-item {
+    padding: 1.25rem 2rem;
+    border-right: 1px solid rgba(22,163,74,0.15);
+    border-bottom: 1px solid rgba(22,163,74,0.15);
+    background: rgba(255,255,255,0.5);
+    min-width: 130px;
+  }
   .stat-num {
     font-family: 'Syne', sans-serif;
-    font-size: 2rem; font-weight: 800;
+    font-size: 1.75rem; font-weight: 800;
     color: var(--green-700);
+    line-height: 1;
+    margin-bottom: 0.35rem;
   }
-  .stat-label { font-size: 0.825rem; color: var(--muted); margin-top: 2px; }
+  .stat-label { font-size: 0.775rem; color: var(--muted); line-height: 1.4; }
 
   /* CATEGORIES */
   .section { padding: 5rem 3rem; }
@@ -445,6 +460,18 @@
     padding: 0.5rem 1.5rem; text-align: center;
     font-size: 0.8rem; color: var(--green-800); font-weight: 500;
   }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag, .hero h1, .hero p, .hero-actions, .hero-stats {
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1       { animation-delay: 0.08s; }
+  .hero p        { animation-delay: 0.16s; }
+  .hero-actions  { animation-delay: 0.24s; }
+  .hero-stats    { animation-delay: 0.34s; }
 </style>
 </head>
 <body>
@@ -475,19 +502,19 @@
   <div class="hero-stats">
     <div class="stat-item">
       <div class="stat-num">6+</div>
-      <div class="stat-label">Kategori Sampah</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">2</div>
-      <div class="stat-label">Jenis Pelanggan</div>
+      <div class="stat-label">Kategori<br/>Sampah Diterima</div>
     </div>
     <div class="stat-item">
       <div class="stat-num">0%</div>
-      <div class="stat-label">Sampah ke TPA</div>
+      <div class="stat-label">Sampah<br/>ke TPA</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">💰</div>
-      <div class="stat-label">Langsung Dibayar</div>
+      <div class="stat-num">2×</div>
+      <div class="stat-label">Jenis<br/>Pelanggan</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Rp ✓</div>
+      <div class="stat-label">Langsung<br/>Dibayar</div>
     </div>
   </div>
 </section>
